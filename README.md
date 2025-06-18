@@ -1,4 +1,4 @@
-# Predicting Road Crash Severity in Nigeria Using Using ML Optimization Techniques
+# Predicting Road Crash Severity in Nigeria Using ML Optimization Techniques
 
 - This project tackles Nigeria's high road traffic fatality rate (41,709 annually) using FRSC Road Transport Data from the National Bureau of Statistics 
 - The dataset includes 481 records with causative factors (e.g., speeding 56.3%, tire bursts) and crash severity (fatal/non-fatal) across Q3 2021–Q3 2024.

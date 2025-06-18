@@ -100,3 +100,7 @@ This section presents a comprehensive analysis of the five models I developed, e
 - **Verification:** I learned the hard way to double-check outputs—after running the notebook, verify the `/content/sample_data/saved_models/` directory contains all five models (svm_optimized_model.pkl, no_optimization_model.keras, optimized_nn1_model.keras, optimized_nn2_model.keras, xgboost_best_model.pkl). If any are missing, rerun the respective training cells, as I once forgot to save the SVM due to a silent error.
 
 - **Visualizations:** The notebook includes plots (e.g., confusion matrices, loss curves) to visualize performance. If the `/content/Road Traffic Model Architecture.png` image fails to load, ensure it’s uploaded to your Colab environment or replace the path with a local file.
+
+
+## Video Presentation
+- **Video Link:** https://youtu.be/37NL1tQmCUk

@@ -27,7 +27,7 @@
 
 ## Dataset
 
-The dataset is derived from the **FRSC Road Transport Data** collection, accessible via the National Bureau of Statistics Microdata Catalog (https://microdata.nigerianstat.gov.ng/index.php/catalog/164/study-description#metadata-description). It is available for download as an Excel file [Road Transport Data Q3 2024.xlsx](data/Road Transport Data Q3 2024.xlsx), with the latest update on May 09, 2025
+The dataset is derived from the **FRSC Road Transport Data** collection, accessible via the National Bureau of Statistics Microdata Catalog (https://microdata.nigerianstat.gov.ng/index.php/catalog/164/study-description#metadata-description). It is available for download as an Excel file here: `data/Road Transport Data Q3 2024.xlsx`, with the latest update on May 09, 2025
 
 - **Features and Target:**
 
@@ -93,7 +93,7 @@ This section presents a comprehensive analysis of the five models I developed, e
 
 - **Setup:** To replicate this work, install the required Python libraries using the following command in your environment: `pip install tensorflow pandas numpy scikit-learn xgboost matplotlib imbalanced-learn==0.8.1`. This ensures compatibility with the specific version of `imbalanced-learn` I used for SMOTE.
 
-- **Running the Notebook:** Open and execute `notebook.ipynb` in Google Colab or a local Jupyter environment. Update the dataset path in the code to point to your local copy of [Road Transport Data Q3 2024.xlsx](data/Road Transport Data Q3 2024.xlsx), ensuring the file structure matches the raw data layout (e.g., Sheet1 with crash and causative data blocks).
+- **Running the Notebook:** Open and execute `notebook.ipynb` in Google Colab or a local Jupyter environment. Update the dataset path in the code to point to your local copy of `data/Road Transport Data Q3 2024.xlsx`, ensuring the file structure matches the raw data layout (e.g., Sheet1 with crash and causative data blocks).
 
 - **Loading the Best Model:** After training, load the best-performing model (XGBoost) for predictions using `saved_models/xgboost_best_model.pkl`. This model, saved as a `.pkl` file, can be used to predict on new data after scaling it with the same `StandardScaler` fitted on the training set.
 

@@ -5,7 +5,7 @@
 - It implements optimized ML models (SVM, XGBoost) and neural networks with regularization to predict severity, addressing class imbalance with SMOTE.
 - The goal is to improve FRSC interventions, aligning with Nigeria’s National Road Safety Strategy II.
 
-**Project Scope:** I first started out with cleaning and engineering this data into 8 percentage-based features (e.g., `SPV_PCT` for speeding), addressing a severe 477:4 class imbalance with SMOTE, and developing a suite of machine learning models—Support Vector Machines (SVM), XGBoost, and neural networks with regularization.
+**Project Scope:** I first started out with cleaning and engineering this data into 8 percentage-based features (e.g., `SPV_PCT` for speeding), addressing a severe 477:4 class imbalance with SMOTE, and developing a suite of machine learning models like Support Vector Machines (SVM), XGBoost, and neural networks with regularization.
 
 
 ## Project Structure
@@ -53,7 +53,7 @@ The dataset is derived from the **FRSC Road Transport Data** collection, accessi
   
   - **Target Variable:** `Severity` (binary: 1 = FATAL, 0 = NON-FATAL, derived from `FATAL` > 0).
   
-- **Dataset Statistics:** The merged dataset contains 481 samples across 37 states and 13 quarters (Q3 2021 to Q3 2024), with an initial imbalance of 477 fatal (99.2%) and 4 non-fatal (0.8%) cases. After applying SMOTE, the resampled dataset balances to 477:477, enabling fair model training. Missing values were addressed with group-wise interpolation and mean imputation, a process I approached with meticulous care.
+- **Dataset Statistics:** The merged dataset contains 481 samples across 37 states and 13 quarters (Q3 2021 to Q3 2024), with an initial imbalance of 477 fatal (99.2%) and 4 non-fatal (0.8%) cases. After applying SMOTE, the resampled dataset balances to 477:477, enabling fair model training. Missing values were addressed with group-wise interpolation and mean imputation, a process I approached with care.
 
 - **Scope and Coverage:** The data covers Nigeria (country code NGA), providing state-level insights into road traffic crashes and causative factors, making it a robust resource for safety analysis.
 
@@ -75,7 +75,7 @@ This section presents a comprehensive analysis of the five models I developed, e
 
 - **Optimized NN1 (L1 Regularization):** Inspired to refine the model, I added L1 regularization (0.05) to the first layer, paired it with a high learning rate of 0.5, and introduced early stopping with a 3-epoch patience. This configuration surprised me as it prioritized recall (1.0) for the fatal class, ensuring no fatal crashes were missed, but accuracy dropped to 0.4615 and F1 to 0.7000, with a loss of 0.8641. The high loss showed that the aggressive learning rate destabilized training.
 
-- **Optimized NN2 (L2 Regularization and Dropout):** Building on my training, I switched to L2 regularization (0.009), added a 0.3 dropout layer after the third dense layer, and used RMSprop with a 0.08 learning rate, again with early stopping (5-epoch patience). This model stood out with a 0.9161 accuracy, 0.9419 F1-score, and a reduced loss of 0.1574 after 8 epochs. The dropout’s role in preventing overfitting was really helpful, and seeing the validation loss stabilize was truly fulfilling.
+- **Optimized NN2 (L2 Regularization and Dropout):** Building on my training, I switched to L2 regularization (0.009), added a 0.3 dropout layer after the third dense layer, and used RMSprop with a 0.08 learning rate, again with early stopping (5-epoch patience). This model stood out with a 0.9161 accuracy, 0.9419 F1-score, and a reduced loss of 0.1574 after 8 epochs. The dropout’s role in preventing overfitting was really helpful, and seeing the validation loss stabilize was fulfilling.
 
 - **Optimized SVM:** I tuned an SVM with C=5, a sigmoid kernel, gamma=0.5, and balanced class weights to handle imbalance. However, it underperformed with a 0.4615 accuracy and 0.5032 F1-score, suggesting the sigmoid kernel struggled with the synthetic SMOTE data. This outcome made me reconsider kernel choices and explore other algorithms and techniques for future experiments.
 
@@ -93,7 +93,7 @@ This section presents a comprehensive analysis of the five models I developed, e
 
 - **Setup:** To replicate this work, install the required Python libraries using the following command in your environment: `pip install tensorflow pandas numpy scikit-learn xgboost matplotlib imbalanced-learn==0.8.1`. This ensures compatibility with the specific version of `imbalanced-learn` I used for SMOTE.
 
-- **Running the Notebook:** Open and execute `notebook.ipynb` in Google Colab or a local Jupyter environment. Update the dataset path in the code to point to your local copy of `data/Road Transport Data Q3 2024.xlsx`, ensuring the file structure matches the raw data layout (e.g., Sheet1 with crash and causative data blocks).
+- **Running the Notebook:** Open and execute `Summative_Intro_to_ml_[Excel_Asaph]_assignment.ipynb` in Google Colab or a local Jupyter environment. Update the dataset path in the code to point to your local copy of `data/Road Transport Data Q3 2024.xlsx`, ensuring the file structure matches the raw data layout (e.g., Sheet1 with crash and causative data blocks).
 
 - **Loading the Best Model:** After training, load the best-performing model (XGBoost) for predictions using `saved_models/xgboost_best_model.pkl`. This model, saved as a `.pkl` file, can be used to predict on new data after scaling it with the same `StandardScaler` fitted on the training set.
 
